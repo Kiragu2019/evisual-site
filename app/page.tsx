@@ -1,26 +1,23 @@
-import Footer from "./components/Footer";
-import CtaSection from "./components/CtaSection";
-import PortfolioSection from "./components/PortfolioSection"; 
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Stats from "./components/Stats";
-import Testimonials from "./components/Testimonials";
 import Ticker from "./components/Ticker";
 import ServicesSection from "./components/ServicesSection";
-
+import Stats from "./components/Stats";
+import PortfolioSection from "./components/PortfolioSection";
+import Testimonials from "./components/Testimonials";
+import CtaSection from "./components/CtaSection";
 
 export default function Home() {
   return (
-      <div>
-        <Navbar/>
-        <Hero/>
-        <Ticker/>
-        <ServicesSection/>
-        <Stats/>
-        <PortfolioSection/>
-        <Testimonials/>
-        <CtaSection/>
-        <Footer/>
-      </div>      
+    <div>
+      {/* Navbar is now handled by layout.tsx */}
+      <Hero />
+      <Ticker />
+      <ServicesSection />
+      <Stats />
+      <PortfolioSection />
+      <Testimonials />
+      <CtaSection />
+      {/* Footer is now handled by layout.tsx */}
+    </div>
   );
 }

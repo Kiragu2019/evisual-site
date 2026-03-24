@@ -50,9 +50,11 @@ export default function WorkSection() {
           <h2 className="text-[48px] md:text-[80px] font-bold tracking-tighter text-slate-900 dark:text-white">
             Selected work.
           </h2>
+          <a href="/work">
           <button className="hidden md:flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-8 py-3 rounded-md text-[14px] font-medium hover:opacity-80 transition-all">
             View all projects
           </button>
+          </a>
         </div>
 
         {/* Content Grid */}

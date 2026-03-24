@@ -1,15 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const WHATSAPP_URL = "https://wa.me/254791339189";
+
+// Updated to point to individual page routes
 const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -33,34 +36,34 @@ export default function Navbar() {
       >
         <nav className="max-w-[1440px] mx-auto px-6 flex items-center justify-between">
           
-          {/* 1. Left Section: Logo (flex-1 to push center) */}
+          {/* 1. Left Section: Logo */}
           <div className="flex-1 flex justify-start">
-            <a href="/" className="flex items-center gap-2.5 group">
+            <Link href="/" className="flex items-center gap-2.5 group">
               <div className="w-9 h-9 bg-slate-950 dark:bg-white rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
                 <span className="text-white dark:text-slate-950 font-bold text-lg">V</span>
               </div>
               <span className="text-[18px] tracking-tight font-semibold text-slate-900 dark:text-white">
                 Visual Studios
               </span>
-            </a>
+            </Link>
           </div>
 
-          {/* 2. Middle Section: Nav Links (Absolute Center) */}
+          {/* 2. Middle Section: Nav Links (Desktop) */}
           <div className="hidden md:flex items-center justify-center">
             <div className="flex items-center gap-2 bg-slate-100/50 dark:bg-slate-800/50 p-1 rounded-full border border-slate-200/50 dark:border-slate-700/50">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="px-5 py-2 text-[14px] font-medium text-[#5f6368] dark:text-[#bdc1c6] hover:text-slate-950 dark:hover:text-white transition-colors rounded-full hover:bg-white dark:hover:bg-slate-700 shadow-sm shadow-transparent hover:shadow-slate-200/50"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
 
-          {/* 3. Right Section: Actions (flex-1 to push center) */}
+          {/* 3. Right Section: Actions */}
           <div className="flex-1 flex justify-end items-center gap-4">
             <a
               href={WHATSAPP_URL}
@@ -93,18 +96,19 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-6 w-full">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
                   className="text-3xl font-medium text-slate-900 dark:text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <div className="h-px bg-slate-100 dark:bg-slate-800 my-4" />
               <a
                 href={WHATSAPP_URL}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-3 bg-[#25D366] text-white py-5 rounded-2xl font-bold text-xl shadow-xl shadow-green-500/20"
               >
                 <WhatsAppIcon className="w-7 h-7 fill-white" />
